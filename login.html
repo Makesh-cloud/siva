@@ -1,0 +1,106 @@
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eef;
+        }
+
+        #login {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 250px;
+            border-style: ridge;
+            border-color: black;
+            box-shadow: inset;
+            background-color: beige;
+            border-radius: 10px;
+        }
+
+        input {
+            height: 0px;
+        }
+
+        input:hover {
+            height: auto;
+        }
+
+        table {
+            margin-top: 50px;
+        }
+
+        tr {
+            padding: 20px;
+
+        }
+
+        button {
+            width: 100px;
+            background-color: aquamarine;
+            margin-top: 30px;
+        }
+
+
+        td {
+            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+        }
+        .messages{
+            border-style: groove;
+            margin-top: 50px;
+            background-color: #28a745;
+            border-color: black;
+            padding: 10px;
+            list-style: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login">
+        <center>
+            
+            <form method="post" autocomplete="off" action="">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label>User Id :</label></td>
+                        <td><input type="text" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td><label>password :</label></td>
+                        <td><input type="password" name="password"></td>
+                    </tr>
+                    <tr>
+                        <center>
+                            <td><button type="submit">submit</button></td>
+                        </center>
+                    </tr>
+                </table>
+
+
+            </form>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </center>
+    </div>
+
+</body>
+
+</html>

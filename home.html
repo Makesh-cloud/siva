@@ -1,0 +1,68 @@
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eef;
+        }
+
+        .messages {
+            border-style: groove;
+            margin-top: 20px;
+            background-color: #28a745;
+            border-color: black;
+            padding: 10px;
+            list-style: none;
+
+        }
+        .kishor{
+            border-style: double;
+            border-color: black;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 50px;
+
+        }
+        .hari{
+            border-style: double;
+            border-color: black;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <center>
+        <div class="hari">
+            <h1>The Song Is For you </h1>
+            <iframe src="https://www.youtube.com/embed/uEld6tX3UcA" width="100%" height="500px"></iframe>
+
+        </div>
+    </center>
+    {% else %}
+    <center>
+        <div class="kishor">
+            <h1>To see that login</h1>
+            <h3>It Is Yours After Login</h3>
+        </div>
+    </center>
+    {% endif %}
+
+</body>
+
+</html>

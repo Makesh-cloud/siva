@@ -1,0 +1,102 @@
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eef;
+        }
+
+        .form-box {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-box h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .messages{
+            border-style: groove;
+            margin-top: 20px;
+            background-color: #28a745;
+            border-color: black;
+            padding: 10px;
+            list-style: none;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email ID</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <input type="submit" value="Register">
+        </form>
+        {% if messages %}
+        <ul class="messages"  >
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
+    </div>
+    
+
+</body>
+
+</html>
